@@ -40,6 +40,11 @@ module Casein
     def casein_config_javascript_includes
       %w[casein/casein casein/custom]
     end
-    
+
+    # Include the top navigation that casein provides by default. If this is false, the partial '/casein/layouts/top_navigation'
+    # will represent the entire top navigation.
+    def include_default_top_nav
+      true
+    end
   end
 end

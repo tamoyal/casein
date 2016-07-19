@@ -32,16 +32,21 @@
         <div class="container">
           <div id="user-info">
             <ul>
-              <li class="hidden-xs hidden-sm">Hello <%= @session_user.name %></li>
-              <li class="hidden-xs hidden-sm"><%= Time.zone.name %></li>
-              <li><%= link_to 'Profile', casein_admin_user_path(@session_user) %></li>
+              <% if include_default_top_nav %>
+                <li class="hidden-xs hidden-sm">Hello <%= @session_user.name %></li>
+                <li class="hidden-xs hidden-sm"><%= Time.zone.name %></li>
+                <li><%= link_to 'Profile', casein_admin_user_path(@session_user) %></li>
 
-              <% if @session_user.is_admin? %>
-                <li><%= link_to 'Users', casein_admin_users_path %></li>
+                <% if @session_user.is_admin? %>
+                  <li><%= link_to 'Users', casein_admin_users_path %></li>
+                <% end %>
               <% end %>
 
               <%= render :partial => '/casein/layouts/top_navigation' %>
-              <li class="last-item signout"><%= link_to 'Sign out', casein_admin_user_session_path, :method => :delete %></li>
+
+              <% if include_default_top_nav %>
+                <li class="last-item signout"><%= link_to 'Sign out', casein_admin_user_session_path, :method => :delete %></li>
+              <% end %>
             </ul>
           </div>
         </div>
