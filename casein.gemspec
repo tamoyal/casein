@@ -21,6 +21,7 @@ Gem::Specification.new do |s|
     "README.rdoc"
   ]
 
+  s.add_dependency "rails", "~> 4.0"
   s.add_dependency "will_paginate", "= 3.0.7"
   s.add_dependency "authlogic", "= 3.4.4"
   s.add_dependency "scrypt", "= 1.2.1"
